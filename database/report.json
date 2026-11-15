@@ -1,0 +1,96 @@
+{
+  "seed": 2026,
+  "official_counts": {
+    "train": 752471,
+    "dev": 80000,
+    "test": 83599
+  },
+  "official_ratio": {
+    "train": 0.8214121191611995,
+    "dev": 0.08732957088432107,
+    "test": 0.09125830995447946
+  },
+  "input_labeled_rows": 832471,
+  "extra_same_title_same_label_rows": 44045,
+  "conflicting_titles_removed": 677,
+  "conflicting_rows_removed": 1474,
+  "note": "Duplicate and conflicting row counts overlap; do not add them to obtain total removed rows.",
+  "clean_unique_titles": 787072,
+  "new_split_rows": {
+    "train": 646510,
+    "dev": 68736,
+    "test": 71826
+  },
+  "class_split_counts": {
+    "体育": {
+      "test": 11895,
+      "dev": 11383,
+      "train": 107065
+    },
+    "娱乐": {
+      "test": 8241,
+      "dev": 7886,
+      "train": 74175
+    },
+    "家居": {
+      "test": 2753,
+      "dev": 2635,
+      "train": 24781
+    },
+    "彩票": {
+      "test": 672,
+      "dev": 643,
+      "train": 6048
+    },
+    "房产": {
+      "test": 1615,
+      "dev": 1545,
+      "train": 14534
+    },
+    "教育": {
+      "test": 3534,
+      "dev": 3382,
+      "train": 31807
+    },
+    "时尚": {
+      "test": 1135,
+      "dev": 1087,
+      "train": 10220
+    },
+    "时政": {
+      "test": 5223,
+      "dev": 4998,
+      "train": 47016
+    },
+    "星座": {
+      "test": 269,
+      "dev": 258,
+      "train": 2425
+    },
+    "游戏": {
+      "test": 2065,
+      "dev": 1977,
+      "train": 18591
+    },
+    "社会": {
+      "test": 4284,
+      "dev": 4100,
+      "train": 38562
+    },
+    "科技": {
+      "test": 13960,
+      "dev": 13359,
+      "train": 125653
+    },
+    "股票": {
+      "test": 13003,
+      "dev": 12443,
+      "train": 117035
+    },
+    "财经": {
+      "test": 3177,
+      "dev": 3040,
+      "train": 28598
+    }
+  }
+}
