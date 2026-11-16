@@ -1,0 +1,147 @@
+{
+  "pretrained_model": "transformer_baseline/pretrained/chinese_roberta_tiny",
+  "device": "cpu",
+  "source_rows": {
+    "train": 646510,
+    "dev": 68736
+  },
+  "used_rows": {
+    "train": 20000,
+    "dev": 5000
+  },
+  "labels": [
+    "体育",
+    "娱乐",
+    "家居",
+    "彩票",
+    "房产",
+    "教育",
+    "时尚",
+    "时政",
+    "星座",
+    "游戏",
+    "社会",
+    "科技",
+    "股票",
+    "财经"
+  ],
+  "settings": {
+    "epochs": 1,
+    "batch_size": 64,
+    "max_length": 64,
+    "learning_rate": 0.0002,
+    "seed": 2026
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.4637534561157226,
+      "dev_accuracy": 0.7778,
+      "dev_macro_f1": 0.5732350923246489
+    }
+  ],
+  "best_epoch": 1,
+  "dev_accuracy": 0.7778,
+  "dev_macro_f1": 0.5732350923246489,
+  "dev_classification_report": {
+    "体育": {
+      "precision": 0.8763557483731019,
+      "recall": 0.9805825242718447,
+      "f1-score": 0.9255441008018328,
+      "support": 824.0
+    },
+    "娱乐": {
+      "precision": 0.8016666666666666,
+      "recall": 0.846830985915493,
+      "f1-score": 0.8236301369863014,
+      "support": 568.0
+    },
+    "家居": {
+      "precision": 0.6139534883720931,
+      "recall": 0.6700507614213198,
+      "f1-score": 0.6407766990291263,
+      "support": 197.0
+    },
+    "彩票": {
+      "precision": 1.0,
+      "recall": 0.041666666666666664,
+      "f1-score": 0.08,
+      "support": 48.0
+    },
+    "房产": {
+      "precision": 0.8372093023255814,
+      "recall": 0.3130434782608696,
+      "f1-score": 0.45569620253164556,
+      "support": 115.0
+    },
+    "教育": {
+      "precision": 0.7303370786516854,
+      "recall": 0.9069767441860465,
+      "f1-score": 0.8091286307053942,
+      "support": 215.0
+    },
+    "时尚": {
+      "precision": 0.5909090909090909,
+      "recall": 0.16455696202531644,
+      "f1-score": 0.25742574257425743,
+      "support": 79.0
+    },
+    "时政": {
+      "precision": 0.6666666666666666,
+      "recall": 0.7566137566137566,
+      "f1-score": 0.7087980173482032,
+      "support": 378.0
+    },
+    "星座": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 23.0
+    },
+    "游戏": {
+      "precision": 0.8243243243243243,
+      "recall": 0.4066666666666667,
+      "f1-score": 0.5446428571428571,
+      "support": 150.0
+    },
+    "社会": {
+      "precision": 0.7112676056338029,
+      "recall": 0.7481481481481481,
+      "f1-score": 0.7292418772563177,
+      "support": 270.0
+    },
+    "科技": {
+      "precision": 0.8210116731517509,
+      "recall": 0.8202137998056366,
+      "f1-score": 0.8206125425376762,
+      "support": 1029.0
+    },
+    "股票": {
+      "precision": 0.7526987242394504,
+      "recall": 0.8382513661202186,
+      "f1-score": 0.7931747673216132,
+      "support": 915.0
+    },
+    "财经": {
+      "precision": 0.6526315789473685,
+      "recall": 0.328042328042328,
+      "f1-score": 0.43661971830985913,
+      "support": 189.0
+    },
+    "accuracy": 0.7778,
+    "macro avg": {
+      "precision": 0.7056451391615417,
+      "recall": 0.5586888705817366,
+      "f1-score": 0.5732350923246489,
+      "support": 5000.0
+    },
+    "weighted avg": {
+      "precision": 0.7741949230675709,
+      "recall": 0.7778,
+      "f1-score": 0.7612902700506393,
+      "support": 5000.0
+    }
+  },
+  "path_base": "repository root (for relative paths)",
+  "data_dir": "dataset/clean_split"
+}
