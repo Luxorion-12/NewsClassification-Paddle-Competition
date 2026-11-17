@@ -1,0 +1,210 @@
+{
+  "path_base": "repository root (for relative paths)",
+  "data_dir": "database",
+  "pretrained_model": "transformer_baseline/pretrained/chinese_roberta_tiny",
+  "device": "cuda",
+  "source_rows": {
+    "train": 646510,
+    "dev": 68736
+  },
+  "used_rows": {
+    "train": 646510,
+    "dev": 68736
+  },
+  "labels": [
+    "体育",
+    "娱乐",
+    "家居",
+    "彩票",
+    "房产",
+    "教育",
+    "时尚",
+    "时政",
+    "星座",
+    "游戏",
+    "社会",
+    "科技",
+    "股票",
+    "财经"
+  ],
+  "settings": {
+    "epochs": 7,
+    "batch_size": 32,
+    "max_length": 64,
+    "learning_rate": 0.0002,
+    "lr_schedule": "linear",
+    "warmup_steps": 7071,
+    "warmup_ratio": 0.05,
+    "early_stop_patience": 3,
+    "early_stop_min_epochs": 7,
+    "seed": 2026
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5655376749124179,
+      "dev_accuracy": 0.9136551443202979,
+      "dev_macro_f1": 0.8982372728090392,
+      "start_lr": 0.0,
+      "end_lr": 0.0001804505905907396,
+      "elapsed_seconds": 139.0133263
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2812686461527123,
+      "dev_accuracy": 0.9246101024208566,
+      "dev_macro_f1": 0.9097881013988162,
+      "start_lr": 0.0001804505905907396,
+      "end_lr": 0.00015037549215894967,
+      "elapsed_seconds": 149.02172679999998
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.23886756776377685,
+      "dev_accuracy": 0.9281744646182495,
+      "dev_macro_f1": 0.9152290157762393,
+      "start_lr": 0.00015037549215894967,
+      "end_lr": 0.00012030039372715973,
+      "elapsed_seconds": 142.49854979999998
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.21217199936278647,
+      "dev_accuracy": 0.9322916666666666,
+      "dev_macro_f1": 0.9209119341513541,
+      "start_lr": 0.00012030039372715973,
+      "end_lr": 9.02252952953698e-05,
+      "elapsed_seconds": 141.5208983
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.19250002748136819,
+      "dev_accuracy": 0.9359724162011173,
+      "dev_macro_f1": 0.9239900757750903,
+      "start_lr": 9.02252952953698e-05,
+      "end_lr": 6.0150196863579866e-05,
+      "elapsed_seconds": 144.95693310000001
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.17565646089334663,
+      "dev_accuracy": 0.9376163873370578,
+      "dev_macro_f1": 0.9268421472764233,
+      "start_lr": 6.0150196863579866e-05,
+      "end_lr": 3.0075098431789933e-05,
+      "elapsed_seconds": 145.4005452
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.16348501497900397,
+      "dev_accuracy": 0.939114874301676,
+      "dev_macro_f1": 0.9289714492334025,
+      "start_lr": 3.0075098431789933e-05,
+      "end_lr": 0.0,
+      "elapsed_seconds": 145.0441525
+    }
+  ],
+  "stopped_early": false,
+  "best_epoch": 7,
+  "dev_accuracy": 0.939114874301676,
+  "dev_macro_f1": 0.9289714492334025,
+  "dev_classification_report": {
+    "体育": {
+      "precision": 0.9860611904970632,
+      "recall": 0.9881402090837214,
+      "f1-score": 0.9870996050899518,
+      "support": 11383.0
+    },
+    "娱乐": {
+      "precision": 0.9459593455627169,
+      "recall": 0.9677910220644179,
+      "f1-score": 0.9567506581421588,
+      "support": 7886.0
+    },
+    "家居": {
+      "precision": 0.9211553473848556,
+      "recall": 0.8956356736242884,
+      "f1-score": 0.908216278622282,
+      "support": 2635.0
+    },
+    "彩票": {
+      "precision": 0.9669291338582677,
+      "recall": 0.9548989113530326,
+      "f1-score": 0.9608763693270735,
+      "support": 643.0
+    },
+    "房产": {
+      "precision": 0.9073203492276696,
+      "recall": 0.8744336569579289,
+      "f1-score": 0.8905735003295979,
+      "support": 1545.0
+    },
+    "教育": {
+      "precision": 0.9621394230769231,
+      "recall": 0.9467770549970431,
+      "f1-score": 0.9543964232488823,
+      "support": 3382.0
+    },
+    "时尚": {
+      "precision": 0.9264150943396227,
+      "recall": 0.9034038638454461,
+      "f1-score": 0.9147647880763856,
+      "support": 1087.0
+    },
+    "时政": {
+      "precision": 0.9040265832681783,
+      "recall": 0.9253701480592237,
+      "f1-score": 0.9145738580185881,
+      "support": 4998.0
+    },
+    "星座": {
+      "precision": 0.9325842696629213,
+      "recall": 0.9651162790697675,
+      "f1-score": 0.9485714285714286,
+      "support": 258.0
+    },
+    "游戏": {
+      "precision": 0.897745149449397,
+      "recall": 0.8659585230146687,
+      "f1-score": 0.8815653964984552,
+      "support": 1977.0
+    },
+    "社会": {
+      "precision": 0.9336658354114713,
+      "recall": 0.9131707317073171,
+      "f1-score": 0.923304562268804,
+      "support": 4100.0
+    },
+    "科技": {
+      "precision": 0.9329309188464118,
+      "recall": 0.9371210419941612,
+      "f1-score": 0.9350212861304056,
+      "support": 13359.0
+    },
+    "股票": {
+      "precision": 0.9316390542062087,
+      "recall": 0.9309652013180101,
+      "f1-score": 0.9313020058688749,
+      "support": 12443.0
+    },
+    "财经": {
+      "precision": 0.8994726433750824,
+      "recall": 0.8976973684210526,
+      "f1-score": 0.8985841290747448,
+      "support": 3040.0
+    },
+    "accuracy": 0.939114874301676,
+    "macro avg": {
+      "precision": 0.9320031670119134,
+      "recall": 0.9261771203935771,
+      "f1-score": 0.9289714492334025,
+      "support": 68736.0
+    },
+    "weighted avg": {
+      "precision": 0.9390645048086721,
+      "recall": 0.939114874301676,
+      "f1-score": 0.9390297517825968,
+      "support": 68736.0
+    }
+  }
+}

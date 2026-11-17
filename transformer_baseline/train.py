@@ -9,12 +9,13 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import time
 from pathlib import Path
 
 import torch
 from sklearn.metrics import accuracy_score, classification_report, f1_score
 from torch.utils.data import DataLoader, Dataset
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, get_linear_schedule_with_warmup
 
 ROOT = Path(__file__).resolve().parent
 PROJECT_ROOT = ROOT.parent
@@ -125,6 +126,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--learning-rate", type=float, default=2e-4)
     parser.add_argument("--threads", type=int, default=8)
     parser.add_argument("--seed", type=int, default=2026)
+    parser.add_argument("--lr-schedule", choices=("constant", "linear"), default="constant")
+    parser.add_argument("--warmup-ratio", type=float, default=0.05)
+    parser.add_argument("--early-stop-patience", type=int, default=0,
+                        help="stop after this many epochs without a new best dev Macro-F1; 0 disables")
+    parser.add_argument("--early-stop-min-epochs", type=int, default=7)
+    parser.add_argument("--resume-checkpoint", type=Path,
+                        help="continue from a last_checkpoint.pt created by this script")
     parser.add_argument("--predict-test", action="store_true")
     parser.add_argument("--predict-only", action="store_true", help="use a saved model to predict test.txt")
     return parser.parse_args()
@@ -136,6 +144,10 @@ def main() -> None:
         raise ValueError("epochs, batch-size, max-length, and threads must be positive")
     if args.learning_rate <= 0:
         raise ValueError("learning-rate must be positive")
+    if not 0 <= args.warmup_ratio < 1:
+        raise ValueError("warmup-ratio must be in [0, 1)")
+    if args.early_stop_patience < 0 or args.early_stop_min_epochs < 1:
+        raise ValueError("early-stop patience must be nonnegative and min epochs positive")
     if args.train_limit is not None and args.train_limit < 1:
         raise ValueError("train-limit must be positive")
     if args.dev_limit is not None and args.dev_limit < 1:
@@ -205,6 +217,13 @@ def main() -> None:
     )
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
+    total_steps = args.epochs * len(train_loader)
+    warmup_steps = int(args.warmup_ratio * total_steps) if args.lr_schedule == "linear" else 0
+    scheduler = None
+    if args.lr_schedule == "linear":
+        scheduler = get_linear_schedule_with_warmup(optimizer, warmup_steps, total_steps)
+    print(f"LR schedule={args.lr_schedule}; warmup steps={warmup_steps}; total steps={total_steps}",
+          flush=True)
     print(
         f"device={device}; train={len(train_titles)}; dev={len(dev_titles)}; "
         f"classes={len(labels)}; max_length={args.max_length}",
@@ -213,8 +232,42 @@ def main() -> None:
     output_model_dir = args.output_dir / "model"
     best_macro_f1 = -1.0
     history: list[dict[str, float | int]] = []
+    first_epoch = 1
+    if args.resume_checkpoint:
+        checkpoint = torch.load(args.resume_checkpoint, map_location=device, weights_only=False)
+        saved_args = checkpoint["args"]
+        if saved_args.get("lr_schedule", "constant") != args.lr_schedule:
+            raise ValueError("resume checkpoint has a different LR schedule")
+        if scheduler is not None and (
+            saved_args["epochs"] != args.epochs
+            or saved_args["warmup_ratio"] != args.warmup_ratio
+            or checkpoint["scheduler_total_steps"] != total_steps
+        ):
+            raise ValueError("resuming a linear schedule requires its original warmup and step budget")
+        for name in ("batch_size", "max_length", "learning_rate", "seed"):
+            if str(getattr(args, name)) != str(saved_args[name]):
+                raise ValueError(f"resume checkpoint has a different {name}")
+        if checkpoint["labels"] != labels:
+            raise ValueError("resume checkpoint has different labels")
+        model.load_state_dict(checkpoint["model_state_dict"])
+        optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+        if scheduler is not None:
+            scheduler.load_state_dict(checkpoint["scheduler_state_dict"])
+        torch.set_rng_state(checkpoint["torch_rng_state"].cpu())
+        random.setstate(checkpoint["python_rng_state"])
+        if torch.cuda.is_available() and checkpoint["cuda_rng_states"]:
+            torch.cuda.set_rng_state_all([state.cpu() for state in checkpoint["cuda_rng_states"]])
+        history = checkpoint["history"]
+        best_epoch = checkpoint["best_epoch"]
+        best_macro_f1 = checkpoint["best_macro_f1"]
+        best_predictions = checkpoint["best_predictions"]
+        first_epoch = checkpoint["epoch"] + 1
+        print(f"Resuming after epoch {checkpoint['epoch']}", flush=True)
 
-    for epoch in range(1, args.epochs + 1):
+    stopped_early = False
+    for epoch in range(first_epoch, args.epochs + 1):
+        epoch_started = time.perf_counter()
+        start_lr = optimizer.param_groups[0]["lr"]
         model.train()
         loss_sum = 0.0
         seen = 0
@@ -224,6 +277,8 @@ def main() -> None:
             output = model(**batch)
             output.loss.backward()
             optimizer.step()
+            if scheduler is not None:
+                scheduler.step()
             batch_size = batch["labels"].shape[0]
             loss_sum += float(output.loss.item()) * batch_size
             seen += batch_size
@@ -238,7 +293,9 @@ def main() -> None:
         accuracy = float(accuracy_score(dev_y, dev_predictions))
         macro_f1 = float(f1_score(dev_y, dev_predictions, average="macro", zero_division=0))
         history.append({"epoch": epoch, "train_loss": loss_sum / seen,
-                        "dev_accuracy": accuracy, "dev_macro_f1": macro_f1})
+                        "dev_accuracy": accuracy, "dev_macro_f1": macro_f1,
+                        "start_lr": start_lr, "end_lr": optimizer.param_groups[0]["lr"],
+                        "elapsed_seconds": time.perf_counter() - epoch_started})
         print(f"epoch {epoch}: dev accuracy={accuracy:.4f}, macro-F1={macro_f1:.4f}", flush=True)
         if macro_f1 > best_macro_f1:
             best_macro_f1 = macro_f1
@@ -247,6 +304,34 @@ def main() -> None:
             tokenizer.save_pretrained(output_model_dir)
             best_predictions = dev_predictions
             best_epoch = epoch
+
+        # Keep the last epoch independently from the best validation model.
+        # Optimizer and RNG states allow a later continuation without restarting.
+        checkpoint = {
+            "epoch": epoch, "model_state_dict": model.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(),
+            "scheduler_state_dict": scheduler.state_dict() if scheduler is not None else None,
+            "scheduler_total_steps": total_steps,
+            "torch_rng_state": torch.get_rng_state(),
+            "python_rng_state": random.getstate(),
+            "cuda_rng_states": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [],
+            "history": history, "best_epoch": best_epoch,
+            "best_macro_f1": best_macro_f1, "best_predictions": best_predictions,
+            "labels": labels, "args": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
+        }
+        temporary_checkpoint = args.output_dir / "last_checkpoint.tmp"
+        torch.save(checkpoint, temporary_checkpoint)
+        temporary_checkpoint.replace(args.output_dir / "last_checkpoint.pt")
+        (args.output_dir / "history.json").write_text(
+            json.dumps(history, indent=2), encoding="utf-8"
+        )
+        if (args.early_stop_patience and epoch < args.epochs
+                and epoch >= args.early_stop_min_epochs
+                and epoch - best_epoch >= args.early_stop_patience):
+            stopped_early = True
+            print(f"Early stopping after epoch {epoch}; best dev Macro-F1 at epoch {best_epoch}",
+                  flush=True)
+            break
 
     best_metrics = history[best_epoch - 1]
     metrics = {
@@ -259,8 +344,13 @@ def main() -> None:
         "labels": labels,
         "settings": {"epochs": args.epochs, "batch_size": args.batch_size,
                      "max_length": args.max_length, "learning_rate": args.learning_rate,
+                     "lr_schedule": args.lr_schedule, "warmup_steps": warmup_steps,
+                     "warmup_ratio": args.warmup_ratio,
+                     "early_stop_patience": args.early_stop_patience,
+                     "early_stop_min_epochs": args.early_stop_min_epochs,
                      "seed": args.seed},
         "history": history,
+        "stopped_early": stopped_early,
         "best_epoch": best_epoch,
         "dev_accuracy": best_metrics["dev_accuracy"],
         "dev_macro_f1": best_metrics["dev_macro_f1"],

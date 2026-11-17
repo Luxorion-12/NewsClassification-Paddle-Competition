@@ -1,0 +1,129 @@
+[
+  {
+    "run": "batch_32",
+    "seconds": 528.1237009000001,
+    "exit_code": 0,
+    "accuracy": 0.9148917597765364,
+    "macro_f1": 0.8977067430445994,
+    "settings": {
+      "epochs": 1,
+      "batch_size": 32,
+      "max_length": 64,
+      "learning_rate": 0.0002,
+      "seed": 2026
+    }
+  },
+  {
+    "run": "batch_64",
+    "seconds": 340.9475163000002,
+    "exit_code": 0,
+    "accuracy": 0.9120111731843575,
+    "macro_f1": 0.8964568532518477,
+    "settings": {
+      "epochs": 1,
+      "batch_size": 64,
+      "max_length": 64,
+      "learning_rate": 0.0002,
+      "seed": 2026
+    }
+  },
+  {
+    "run": "batch_128",
+    "seconds": 242.7054036999998,
+    "exit_code": 0,
+    "accuracy": 0.9083449720670391,
+    "macro_f1": 0.8913431395011446,
+    "settings": {
+      "epochs": 1,
+      "batch_size": 128,
+      "max_length": 64,
+      "learning_rate": 0.0002,
+      "seed": 2026
+    }
+  },
+  {
+    "run": "svm_c1.0_char1-2",
+    "seconds": 84.76193970000031,
+    "exit_code": 0,
+    "accuracy": 0.9462290502793296,
+    "macro_f1": 0.9373178497314297,
+    "settings": {
+      "analyzer": "char",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 5,
+      "lowercase": false,
+      "c": 1.0
+    }
+  },
+  {
+    "run": "svm_c0.25_char1-2",
+    "seconds": 72.37409829999979,
+    "exit_code": 0,
+    "accuracy": 0.9424610102420856,
+    "macro_f1": 0.9314712184227327,
+    "settings": {
+      "analyzer": "char",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 5,
+      "lowercase": false,
+      "c": 0.25
+    }
+  },
+  {
+    "run": "svm_c4.0_char1-2",
+    "seconds": 93.65937710000026,
+    "exit_code": 0,
+    "accuracy": 0.9437994646182495,
+    "macro_f1": 0.9345024866193843,
+    "settings": {
+      "analyzer": "char",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 5,
+      "lowercase": false,
+      "c": 4.0
+    }
+  },
+  {
+    "run": "svm_c1.0_char1-3",
+    "seconds": 106.54897249999976,
+    "exit_code": 0,
+    "accuracy": 0.947538407821229,
+    "macro_f1": 0.9383451750383797,
+    "settings": {
+      "analyzer": "char",
+      "ngram_range": [
+        1,
+        3
+      ],
+      "min_df": 5,
+      "lowercase": false,
+      "c": 1.0
+    }
+  },
+  {
+    "run": "svm_c1.0_char2-3",
+    "seconds": 87.78134829999954,
+    "exit_code": 0,
+    "accuracy": 0.9437558193668529,
+    "macro_f1": 0.9342730500993205,
+    "settings": {
+      "analyzer": "char",
+      "ngram_range": [
+        2,
+        3
+      ],
+      "min_df": 5,
+      "lowercase": false,
+      "c": 1.0
+    }
+  }
+]

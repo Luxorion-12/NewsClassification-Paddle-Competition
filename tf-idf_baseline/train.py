@@ -67,6 +67,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--min-df", type=int, default=5)
     parser.add_argument("--c", type=float, default=1.0)
+    parser.add_argument("--ngram-range", type=int, nargs=2, default=(1, 2),
+                        metavar=("MIN", "MAX"))
+    parser.add_argument("--dev-only", action="store_true", help="skip test predictions during tuning")
     parser.add_argument("--predict-only", action="store_true", help="use a saved model to predict test.txt")
     return parser.parse_args()
 
@@ -75,6 +78,9 @@ def main() -> None:
     args = parse_args()
     if args.min_df < 1 or args.c <= 0:
         raise ValueError("min-df must be at least 1 and c must be positive")
+    ngram_range = tuple(args.ngram_range)
+    if not 1 <= ngram_range[0] <= ngram_range[1]:
+        raise ValueError("ngram-range must satisfy 1 <= MIN <= MAX")
 
     output_dir = args.output_dir or ROOT / "outputs" / f"min_df_{args.min_df}"
     if args.predict_only:
@@ -92,7 +98,7 @@ def main() -> None:
 
     train_titles, train_labels = read_labeled(args.data_dir / "train.txt")
     dev_titles, dev_labels = read_labeled(args.data_dir / "dev.txt")
-    test_titles = read_titles(args.data_dir / "test.txt")
+    test_titles = None if args.dev_only else read_titles(args.data_dir / "test.txt")
 
     # One fixed mapping is shared by training, validation, and prediction.
     labels = sorted(set(train_labels))
@@ -106,7 +112,7 @@ def main() -> None:
     # Learn vocabulary and IDF on train only; reuse them for dev and test.
     vectorizer = TfidfVectorizer(
         analyzer="char",
-        ngram_range=(1, 2),
+        ngram_range=ngram_range,
         min_df=args.min_df,
         lowercase=False,
     )
@@ -122,28 +128,26 @@ def main() -> None:
     print(f"train: {x_train.shape}; dev: {x_dev.shape}; classes: {len(labels)}")
     print(f"dev accuracy: {accuracy:.4f}; dev macro-F1: {macro_f1:.4f}")
 
-    # test.txt has titles only. The labels below are predictions, not inputs.
-    x_test = vectorizer.transform(test_titles)
-    test_predictions = classifier.predict(x_test)
-    predicted_labels = [labels[int(index)] for index in test_predictions]
-
     output_dir.mkdir(parents=True, exist_ok=True)
     joblib.dump(
         {"vectorizer": vectorizer, "classifier": classifier, "labels": labels},
         output_dir / "model.joblib",
     )
-    (output_dir / "predictions.txt").write_text(
-        "\n".join(predicted_labels) + "\n", encoding="utf-8"
-    )
+    if test_titles is not None:
+        test_predictions = classifier.predict(vectorizer.transform(test_titles))
+        predicted_labels = [labels[int(index)] for index in test_predictions]
+        (output_dir / "predictions.txt").write_text(
+            "\n".join(predicted_labels) + "\n", encoding="utf-8"
+        )
     metrics = {
         "path_base": "repository root (for relative paths)",
         "data_dir": report_path(args.data_dir),
         "train_rows": len(train_titles),
         "dev_rows": len(dev_titles),
-        "test_rows": len(test_titles),
+        "test_rows": len(test_titles) if test_titles is not None else 0,
         "vocabulary_size": x_train.shape[1],
         "labels": labels,
-        "settings": {"analyzer": "char", "ngram_range": [1, 2],
+        "settings": {"analyzer": "char", "ngram_range": ngram_range,
                      "min_df": args.min_df, "lowercase": False, "c": args.c},
         "dev_accuracy": accuracy,
         "dev_macro_f1": macro_f1,
