@@ -1,7 +1,7 @@
 """Fine-tune a small pretrained Chinese Transformer on clean_split.
 
 The default model is a local copy of uer/chinese_roberta_L-2_H-128. Validation
-labels are used only for metrics and model selection; test_labeled.txt is unused.
+labels are used only for metrics; test_labeled.txt is unused.
 """
 
 from __future__ import annotations
