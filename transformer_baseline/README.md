@@ -8,7 +8,7 @@
 
 1. ��ȡ `dataset/clean_split/train.txt` �� `dev.txt` �ı��������
 2. ��ѵ��������̶���ű���ѵ�������ṩ����ţ���֤����ֻ�ṩ�������룬Ԥ�������ʵ���Ƚϡ�
-3. ʹ����Ԥѵ��ģ�����׵� tokenizer���ѱ���ת��Ϊ `input_ids` �� `attention_mask`�������ڶ�̬��䣻��ౣ�� 64 ����Ԫ��
+3. ʹ����Ԥѵ��ģ�����׵� tokenizer���ѱ���ת��Ϊ `input_ids`��`attention_mask` �� `token_type_ids`�������ڶ�̬��䣻��ౣ�� 64 ����Ԫ��
 4. ѵ��ʱ������ʧ����ģ�ͣ�ÿ���� `dev` �ϼ��� Accuracy �� Macro-F1���� `--epochs` ���겢�������һ��ģ�͡�
 5. ��ѡ `--predict-test`���� `dataset/clean_split/test.txt` ˳�����Ԥ�⡣ѵ���ű�����ȡ `test_labeled.txt`��ѵ���������ɶ������ֽű����㱾�ز���ָ�ꡣ
 
