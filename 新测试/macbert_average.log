@@ -1,0 +1,2 @@
+{'weight_epoch2': 0.5, 'dev_accuracy': 0.9625960195530726, 'dev_macro_f1': 0.9574013360362124}
+{'weight_epoch2': 0.25, 'dev_accuracy': 0.9629306331471136, 'dev_macro_f1': 0.9576573798188582}

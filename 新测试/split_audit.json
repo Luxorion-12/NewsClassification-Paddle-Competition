@@ -1,0 +1,33 @@
+{
+  "rows": {
+    "train": 646510,
+    "dev": 68736,
+    "test": 71826
+  },
+  "exact_title_overlap": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+  },
+  "files_sha256": {
+    "train": "6f8efb9e7c7aeb545df4c1ec4513b05157bb9d485dd34869dd939ad5d6c69309",
+    "dev": "aaea26ceca7b54b59aeed4b669af402b92ce4fce37ccd04dfa9b887413918aa0",
+    "test": "84219dc61b620b2076b7c001f371539bfbe775c4a23f3ebad0e0072bfca11d2f"
+  },
+  "labels": [
+    "体育",
+    "娱乐",
+    "家居",
+    "彩票",
+    "房产",
+    "教育",
+    "时尚",
+    "时政",
+    "星座",
+    "游戏",
+    "社会",
+    "科技",
+    "股票",
+    "财经"
+  ]
+}

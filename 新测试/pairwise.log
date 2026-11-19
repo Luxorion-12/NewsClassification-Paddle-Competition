@@ -1,0 +1,14 @@
+科技 vs 股票: 390 dev top-2 errors
+股票 vs 财经: 284 dev top-2 errors
+游戏 vs 科技: 223 dev top-2 errors
+时政 vs 股票: 181 dev top-2 errors
+时政 vs 社会: 127 dev top-2 errors
+体育 vs 娱乐: 118 dev top-2 errors
+社会 vs 科技: 109 dev top-2 errors
+时政 vs 科技: 97 dev top-2 errors
+娱乐 vs 科技: 75 dev top-2 errors
+教育 vs 社会: 69 dev top-2 errors
+家居 vs 科技: 67 dev top-2 errors
+房产 vs 股票: 60 dev top-2 errors
+{'settings': {'weight': 1.0, 'max_gap': 0.2}, 'dev_accuracy': 0.9488914106145251, 'dev_macro_f1': 0.9400683798419296}
+Wrote 71826 test predictions

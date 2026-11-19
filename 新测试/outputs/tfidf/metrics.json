@@ -1,0 +1,526 @@
+{
+  "train_rows": 646510,
+  "dev_rows": 68736,
+  "dev_accuracy": 0.9488332169459963,
+  "dev_macro_f1": 0.9400731373513814,
+  "dev_normalized_svm_accuracy": 0.946927374301676,
+  "dev_original_svm_accuracy": 0.9479166666666666,
+  "dev_best_svm_only_accuracy": 0.9482367318435754,
+  "settings": {
+    "weight": 0.25,
+    "bonus": 0.7,
+    "threshold": 0.35
+  },
+  "validation_grid": [
+    {
+      "weight": 0,
+      "bonus": 0,
+      "threshold": 0,
+      "accuracy": 0.9479166666666666
+    },
+    {
+      "weight": 0,
+      "bonus": 0.35,
+      "threshold": 0.35,
+      "accuracy": 0.9481057960893855
+    },
+    {
+      "weight": 0,
+      "bonus": 0.35,
+      "threshold": 0.5,
+      "accuracy": 0.9479894087523277
+    },
+    {
+      "weight": 0,
+      "bonus": 0.35,
+      "threshold": 0.65,
+      "accuracy": 0.9479748603351955
+    },
+    {
+      "weight": 0,
+      "bonus": 0.35,
+      "threshold": 0.8,
+      "accuracy": 0.9479748603351955
+    },
+    {
+      "weight": 0,
+      "bonus": 0.7,
+      "threshold": 0.35,
+      "accuracy": 0.948411312849162
+    },
+    {
+      "weight": 0,
+      "bonus": 0.7,
+      "threshold": 0.5,
+      "accuracy": 0.9482367318435754
+    },
+    {
+      "weight": 0,
+      "bonus": 0.7,
+      "threshold": 0.65,
+      "accuracy": 0.9480912476722533
+    },
+    {
+      "weight": 0,
+      "bonus": 0.7,
+      "threshold": 0.8,
+      "accuracy": 0.9479894087523277
+    },
+    {
+      "weight": 0,
+      "bonus": 1.4,
+      "threshold": 0.35,
+      "accuracy": 0.9483240223463687
+    },
+    {
+      "weight": 0,
+      "bonus": 1.4,
+      "threshold": 0.5,
+      "accuracy": 0.9483240223463687
+    },
+    {
+      "weight": 0,
+      "bonus": 1.4,
+      "threshold": 0.65,
+      "accuracy": 0.9482949255121043
+    },
+    {
+      "weight": 0,
+      "bonus": 1.4,
+      "threshold": 0.8,
+      "accuracy": 0.9481639897579144
+    },
+    {
+      "weight": 0,
+      "bonus": 2.8,
+      "threshold": 0.35,
+      "accuracy": 0.9479894087523277
+    },
+    {
+      "weight": 0,
+      "bonus": 2.8,
+      "threshold": 0.5,
+      "accuracy": 0.9482076350093109
+    },
+    {
+      "weight": 0,
+      "bonus": 2.8,
+      "threshold": 0.65,
+      "accuracy": 0.9483094739292365
+    },
+    {
+      "weight": 0,
+      "bonus": 2.8,
+      "threshold": 0.8,
+      "accuracy": 0.948280377094972
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0,
+      "threshold": 0,
+      "accuracy": 0.9482367318435754
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.35,
+      "threshold": 0.35,
+      "accuracy": 0.9485858938547486
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.35,
+      "threshold": 0.5,
+      "accuracy": 0.9484549581005587
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.35,
+      "threshold": 0.65,
+      "accuracy": 0.9483385707635009
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.35,
+      "threshold": 0.8,
+      "accuracy": 0.948280377094972
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.7,
+      "threshold": 0.35,
+      "accuracy": 0.9488332169459963
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.7,
+      "threshold": 0.5,
+      "accuracy": 0.9487022811918063
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.7,
+      "threshold": 0.65,
+      "accuracy": 0.9484549581005587
+    },
+    {
+      "weight": 0.25,
+      "bonus": 0.7,
+      "threshold": 0.8,
+      "accuracy": 0.9483385707635009
+    },
+    {
+      "weight": 0.25,
+      "bonus": 1.4,
+      "threshold": 0.35,
+      "accuracy": 0.9486295391061452
+    },
+    {
+      "weight": 0.25,
+      "bonus": 1.4,
+      "threshold": 0.5,
+      "accuracy": 0.9486004422718808
+    },
+    {
+      "weight": 0.25,
+      "bonus": 1.4,
+      "threshold": 0.65,
+      "accuracy": 0.9486586359404097
+    },
+    {
+      "weight": 0.25,
+      "bonus": 1.4,
+      "threshold": 0.8,
+      "accuracy": 0.9484840549348231
+    },
+    {
+      "weight": 0.25,
+      "bonus": 2.8,
+      "threshold": 0.35,
+      "accuracy": 0.9481639897579144
+    },
+    {
+      "weight": 0.25,
+      "bonus": 2.8,
+      "threshold": 0.5,
+      "accuracy": 0.9486731843575419
+    },
+    {
+      "weight": 0.25,
+      "bonus": 2.8,
+      "threshold": 0.65,
+      "accuracy": 0.948614990689013
+    },
+    {
+      "weight": 0.25,
+      "bonus": 2.8,
+      "threshold": 0.8,
+      "accuracy": 0.9485713454376163
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0,
+      "threshold": 0,
+      "accuracy": 0.9479457635009311
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.35,
+      "threshold": 0.35,
+      "accuracy": 0.948280377094972
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.35,
+      "threshold": 0.5,
+      "accuracy": 0.9481494413407822
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.35,
+      "threshold": 0.65,
+      "accuracy": 0.9480330540037244
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.35,
+      "threshold": 0.8,
+      "accuracy": 0.9480185055865922
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.7,
+      "threshold": 0.35,
+      "accuracy": 0.9484549581005587
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.7,
+      "threshold": 0.5,
+      "accuracy": 0.9483094739292365
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.7,
+      "threshold": 0.65,
+      "accuracy": 0.9481057960893855
+    },
+    {
+      "weight": 0.5,
+      "bonus": 0.7,
+      "threshold": 0.8,
+      "accuracy": 0.9480766992551211
+    },
+    {
+      "weight": 0.5,
+      "bonus": 1.4,
+      "threshold": 0.35,
+      "accuracy": 0.9482512802607076
+    },
+    {
+      "weight": 0.5,
+      "bonus": 1.4,
+      "threshold": 0.5,
+      "accuracy": 0.9483822160148976
+    },
+    {
+      "weight": 0.5,
+      "bonus": 1.4,
+      "threshold": 0.65,
+      "accuracy": 0.9482221834264432
+    },
+    {
+      "weight": 0.5,
+      "bonus": 1.4,
+      "threshold": 0.8,
+      "accuracy": 0.9481494413407822
+    },
+    {
+      "weight": 0.5,
+      "bonus": 2.8,
+      "threshold": 0.35,
+      "accuracy": 0.9477275372439479
+    },
+    {
+      "weight": 0.5,
+      "bonus": 2.8,
+      "threshold": 0.5,
+      "accuracy": 0.9483094739292365
+    },
+    {
+      "weight": 0.5,
+      "bonus": 2.8,
+      "threshold": 0.65,
+      "accuracy": 0.9481494413407822
+    },
+    {
+      "weight": 0.5,
+      "bonus": 2.8,
+      "threshold": 0.8,
+      "accuracy": 0.9482512802607076
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0,
+      "threshold": 0,
+      "accuracy": 0.9474511173184358
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.35,
+      "threshold": 0.35,
+      "accuracy": 0.9476402467411545
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.35,
+      "threshold": 0.5,
+      "accuracy": 0.9475966014897579
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.35,
+      "threshold": 0.65,
+      "accuracy": 0.9475238594040968
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.35,
+      "threshold": 0.8,
+      "accuracy": 0.947465665735568
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.7,
+      "threshold": 0.35,
+      "accuracy": 0.9477275372439479
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.7,
+      "threshold": 0.5,
+      "accuracy": 0.9476111499068901
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.7,
+      "threshold": 0.65,
+      "accuracy": 0.9475529562383612
+    },
+    {
+      "weight": 0.75,
+      "bonus": 0.7,
+      "threshold": 0.8,
+      "accuracy": 0.9475093109869647
+    },
+    {
+      "weight": 0.75,
+      "bonus": 1.4,
+      "threshold": 0.35,
+      "accuracy": 0.9476984404096834
+    },
+    {
+      "weight": 0.75,
+      "bonus": 1.4,
+      "threshold": 0.5,
+      "accuracy": 0.9476547951582868
+    },
+    {
+      "weight": 0.75,
+      "bonus": 1.4,
+      "threshold": 0.65,
+      "accuracy": 0.9476547951582868
+    },
+    {
+      "weight": 0.75,
+      "bonus": 1.4,
+      "threshold": 0.8,
+      "accuracy": 0.9475820530726257
+    },
+    {
+      "weight": 0.75,
+      "bonus": 2.8,
+      "threshold": 0.35,
+      "accuracy": 0.947131052141527
+    },
+    {
+      "weight": 0.75,
+      "bonus": 2.8,
+      "threshold": 0.5,
+      "accuracy": 0.9475529562383612
+    },
+    {
+      "weight": 0.75,
+      "bonus": 2.8,
+      "threshold": 0.65,
+      "accuracy": 0.9475529562383612
+    },
+    {
+      "weight": 0.75,
+      "bonus": 2.8,
+      "threshold": 0.8,
+      "accuracy": 0.9476838919925512
+    },
+    {
+      "weight": 1,
+      "bonus": 0,
+      "threshold": 0,
+      "accuracy": 0.946927374301676
+    },
+    {
+      "weight": 1,
+      "bonus": 0.35,
+      "threshold": 0.35,
+      "accuracy": 0.9471019553072626
+    },
+    {
+      "weight": 1,
+      "bonus": 0.35,
+      "threshold": 0.5,
+      "accuracy": 0.9470146648044693
+    },
+    {
+      "weight": 1,
+      "bonus": 0.35,
+      "threshold": 0.65,
+      "accuracy": 0.9469855679702048
+    },
+    {
+      "weight": 1,
+      "bonus": 0.35,
+      "threshold": 0.8,
+      "accuracy": 0.9469128258845437
+    },
+    {
+      "weight": 1,
+      "bonus": 0.7,
+      "threshold": 0.35,
+      "accuracy": 0.9472328910614525
+    },
+    {
+      "weight": 1,
+      "bonus": 0.7,
+      "threshold": 0.5,
+      "accuracy": 0.9470292132216015
+    },
+    {
+      "weight": 1,
+      "bonus": 0.7,
+      "threshold": 0.65,
+      "accuracy": 0.9470728584729982
+    },
+    {
+      "weight": 1,
+      "bonus": 0.7,
+      "threshold": 0.8,
+      "accuracy": 0.9469710195530726
+    },
+    {
+      "weight": 1,
+      "bonus": 1.4,
+      "threshold": 0.35,
+      "accuracy": 0.9470874068901304
+    },
+    {
+      "weight": 1,
+      "bonus": 1.4,
+      "threshold": 0.5,
+      "accuracy": 0.9470437616387337
+    },
+    {
+      "weight": 1,
+      "bonus": 1.4,
+      "threshold": 0.65,
+      "accuracy": 0.9470874068901304
+    },
+    {
+      "weight": 1,
+      "bonus": 1.4,
+      "threshold": 0.8,
+      "accuracy": 0.9470292132216015
+    },
+    {
+      "weight": 1,
+      "bonus": 2.8,
+      "threshold": 0.35,
+      "accuracy": 0.9464472765363129
+    },
+    {
+      "weight": 1,
+      "bonus": 2.8,
+      "threshold": 0.5,
+      "accuracy": 0.9470583100558659
+    },
+    {
+      "weight": 1,
+      "bonus": 2.8,
+      "threshold": 0.65,
+      "accuracy": 0.9470292132216015
+    },
+    {
+      "weight": 1,
+      "bonus": 2.8,
+      "threshold": 0.8,
+      "accuracy": 0.9471165037243948
+    }
+  ]
+}

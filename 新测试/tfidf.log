@@ -1,0 +1,5 @@
+Vectorizing 646510 train titles
+Fitting LinearSVC on (646510, 1451711), nnz=31483276
+Validating both SVM representations and retrieval
+{'train_rows': 646510, 'dev_rows': 68736, 'dev_accuracy': 0.9488332169459963, 'dev_macro_f1': 0.9400731373513814, 'dev_normalized_svm_accuracy': 0.946927374301676, 'dev_original_svm_accuracy': 0.9479166666666666, 'dev_best_svm_only_accuracy': 0.9482367318435754, 'settings': {'weight': 0.25, 'bonus': 0.7, 'threshold': 0.35}}
+Wrote 71826 test predictions

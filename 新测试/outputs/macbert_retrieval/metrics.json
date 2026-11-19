@@ -1,0 +1,113 @@
+{
+  "logits": "macbert",
+  "best": {
+    "bonus": 4,
+    "threshold": 0.35,
+    "dev_accuracy": 0.9640799581005587,
+    "dev_macro_f1": 0.9585426232656895
+  },
+  "validation_grid": [
+    {
+      "bonus": 0,
+      "threshold": 0,
+      "dev_accuracy": 0.9632070530726257,
+      "dev_macro_f1": 0.9577438350006166
+    },
+    {
+      "bonus": 2,
+      "threshold": 0.35,
+      "dev_accuracy": 0.9637016992551211,
+      "dev_macro_f1": 0.9580976289230192
+    },
+    {
+      "bonus": 2,
+      "threshold": 0.5,
+      "dev_accuracy": 0.9635125698324022,
+      "dev_macro_f1": 0.957981444610879
+    },
+    {
+      "bonus": 2,
+      "threshold": 0.65,
+      "dev_accuracy": 0.963425279329609,
+      "dev_macro_f1": 0.9579187531165173
+    },
+    {
+      "bonus": 2,
+      "threshold": 0.8,
+      "dev_accuracy": 0.9633379888268156,
+      "dev_macro_f1": 0.9578582081097908
+    },
+    {
+      "bonus": 4,
+      "threshold": 0.35,
+      "dev_accuracy": 0.9640799581005587,
+      "dev_macro_f1": 0.9585426232656895
+    },
+    {
+      "bonus": 4,
+      "threshold": 0.5,
+      "dev_accuracy": 0.9637453445065177,
+      "dev_macro_f1": 0.958220374945282
+    },
+    {
+      "bonus": 4,
+      "threshold": 0.65,
+      "dev_accuracy": 0.9636144087523277,
+      "dev_macro_f1": 0.9580570286013803
+    },
+    {
+      "bonus": 4,
+      "threshold": 0.8,
+      "dev_accuracy": 0.9634834729981379,
+      "dev_macro_f1": 0.9579693247114376
+    },
+    {
+      "bonus": 8,
+      "threshold": 0.35,
+      "dev_accuracy": 0.9638617318435754,
+      "dev_macro_f1": 0.9584007128027564
+    },
+    {
+      "bonus": 8,
+      "threshold": 0.5,
+      "dev_accuracy": 0.9639635707635009,
+      "dev_macro_f1": 0.9585311867160218
+    },
+    {
+      "bonus": 8,
+      "threshold": 0.65,
+      "dev_accuracy": 0.9639199255121043,
+      "dev_macro_f1": 0.9584100627011984
+    },
+    {
+      "bonus": 8,
+      "threshold": 0.8,
+      "dev_accuracy": 0.9636726024208566,
+      "dev_macro_f1": 0.9581632281217173
+    },
+    {
+      "bonus": 16,
+      "threshold": 0.35,
+      "dev_accuracy": 0.9631488594040968,
+      "dev_macro_f1": 0.9578776579288195
+    },
+    {
+      "bonus": 16,
+      "threshold": 0.5,
+      "dev_accuracy": 0.9636726024208566,
+      "dev_macro_f1": 0.9583530340988112
+    },
+    {
+      "bonus": 16,
+      "threshold": 0.65,
+      "dev_accuracy": 0.9638908286778398,
+      "dev_macro_f1": 0.9584050507575466
+    },
+    {
+      "bonus": 16,
+      "threshold": 0.8,
+      "dev_accuracy": 0.9638762802607076,
+      "dev_macro_f1": 0.9584069212100111
+    }
+  ]
+}

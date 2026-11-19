@@ -1,0 +1,2 @@
+{'bonus': 4, 'threshold': 0.35, 'dev_accuracy': 0.9640799581005587, 'dev_macro_f1': 0.9585426232656895}
+Wrote 71826 predictions

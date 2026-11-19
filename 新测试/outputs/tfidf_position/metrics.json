@@ -1,0 +1,34 @@
+{
+  "best": {
+    "weight": 0.75,
+    "dev_accuracy": 0.9522375465549349,
+    "dev_macro_f1": 0.9445068755355907
+  },
+  "validation_grid": [
+    {
+      "weight": 0,
+      "dev_accuracy": 0.9488332169459963,
+      "dev_macro_f1": 0.9400731373513814
+    },
+    {
+      "weight": 0.25,
+      "dev_accuracy": 0.9506226722532588,
+      "dev_macro_f1": 0.9422890044229917
+    },
+    {
+      "weight": 0.5,
+      "dev_accuracy": 0.9516265130353817,
+      "dev_macro_f1": 0.9441930340743288
+    },
+    {
+      "weight": 0.75,
+      "dev_accuracy": 0.9522375465549349,
+      "dev_macro_f1": 0.9445068755355907
+    },
+    {
+      "weight": 1,
+      "dev_accuracy": 0.9515974162011173,
+      "dev_macro_f1": 0.9438530594763078
+    }
+  ]
+}

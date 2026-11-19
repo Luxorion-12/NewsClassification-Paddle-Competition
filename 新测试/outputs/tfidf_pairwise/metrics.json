@@ -1,0 +1,156 @@
+{
+  "best": {
+    "settings": {
+      "weight": 1.0,
+      "max_gap": 0.2
+    },
+    "dev_accuracy": 0.9488914106145251,
+    "dev_macro_f1": 0.9400683798419296
+  },
+  "base": {
+    "settings": {
+      "weight": 0,
+      "max_gap": 0
+    },
+    "dev_accuracy": 0.9488332169459963,
+    "dev_macro_f1": 0.9400731373513814
+  },
+  "validation_grid": [
+    {
+      "settings": {
+        "weight": 0,
+        "max_gap": 0
+      },
+      "dev_accuracy": 0.9488332169459963,
+      "dev_macro_f1": 0.9400731373513814
+    },
+    {
+      "settings": {
+        "weight": 0.25,
+        "max_gap": 0.2
+      },
+      "dev_accuracy": 0.9487168296089385,
+      "dev_macro_f1": 0.9399844037008639
+    },
+    {
+      "settings": {
+        "weight": 0.25,
+        "max_gap": 0.4
+      },
+      "dev_accuracy": 0.9487168296089385,
+      "dev_macro_f1": 0.9399844037008639
+    },
+    {
+      "settings": {
+        "weight": 0.25,
+        "max_gap": 0.8
+      },
+      "dev_accuracy": 0.9487168296089385,
+      "dev_macro_f1": 0.9399844037008639
+    },
+    {
+      "settings": {
+        "weight": 0.25,
+        "max_gap": 1.6
+      },
+      "dev_accuracy": 0.9487168296089385,
+      "dev_macro_f1": 0.9399844037008639
+    },
+    {
+      "settings": {
+        "weight": 0.5,
+        "max_gap": 0.2
+      },
+      "dev_accuracy": 0.9488477653631285,
+      "dev_macro_f1": 0.9400812127597533
+    },
+    {
+      "settings": {
+        "weight": 0.5,
+        "max_gap": 0.4
+      },
+      "dev_accuracy": 0.9488623137802608,
+      "dev_macro_f1": 0.940081171676498
+    },
+    {
+      "settings": {
+        "weight": 0.5,
+        "max_gap": 0.8
+      },
+      "dev_accuracy": 0.9488623137802608,
+      "dev_macro_f1": 0.940081171676498
+    },
+    {
+      "settings": {
+        "weight": 0.5,
+        "max_gap": 1.6
+      },
+      "dev_accuracy": 0.9488623137802608,
+      "dev_macro_f1": 0.940081171676498
+    },
+    {
+      "settings": {
+        "weight": 1.0,
+        "max_gap": 0.2
+      },
+      "dev_accuracy": 0.9488914106145251,
+      "dev_macro_f1": 0.9400683798419296
+    },
+    {
+      "settings": {
+        "weight": 1.0,
+        "max_gap": 0.4
+      },
+      "dev_accuracy": 0.9488186685288641,
+      "dev_macro_f1": 0.9399917523964761
+    },
+    {
+      "settings": {
+        "weight": 1.0,
+        "max_gap": 0.8
+      },
+      "dev_accuracy": 0.9488186685288641,
+      "dev_macro_f1": 0.9399917523964761
+    },
+    {
+      "settings": {
+        "weight": 1.0,
+        "max_gap": 1.6
+      },
+      "dev_accuracy": 0.9488186685288641,
+      "dev_macro_f1": 0.9399917523964761
+    },
+    {
+      "settings": {
+        "weight": 2.0,
+        "max_gap": 0.2
+      },
+      "dev_accuracy": 0.9488041201117319,
+      "dev_macro_f1": 0.9400547349445129
+    },
+    {
+      "settings": {
+        "weight": 2.0,
+        "max_gap": 0.4
+      },
+      "dev_accuracy": 0.9485858938547486,
+      "dev_macro_f1": 0.9398313956654122
+    },
+    {
+      "settings": {
+        "weight": 2.0,
+        "max_gap": 0.8
+      },
+      "dev_accuracy": 0.9485422486033519,
+      "dev_macro_f1": 0.9397930707124534
+    },
+    {
+      "settings": {
+        "weight": 2.0,
+        "max_gap": 1.6
+      },
+      "dev_accuracy": 0.9485422486033519,
+      "dev_macro_f1": 0.9397930707124534
+    }
+  ]
+}

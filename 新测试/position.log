@@ -1,0 +1,4 @@
+Fitting TF-IDF with character n-grams and title boundary features
+Fitting on (646510, 1241650); nnz=43833609
+{'weight': 0.75, 'dev_accuracy': 0.9522375465549349, 'dev_macro_f1': 0.9445068755355907}
+Wrote 71826 test predictions

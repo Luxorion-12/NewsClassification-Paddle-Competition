@@ -1,0 +1,62 @@
+{
+  "best": {
+    "epoch": 3,
+    "step": 5054,
+    "dev_accuracy": 0.9632070530726257,
+    "dev_macro_f1": 0.9577438350006166
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "step": 2527,
+      "dev_accuracy": 0.9484695065176909,
+      "dev_macro_f1": 0.9378983980591921
+    },
+    {
+      "epoch": 1,
+      "step": 5054,
+      "dev_accuracy": 0.9557146182495344,
+      "dev_macro_f1": 0.9469967622722797
+    },
+    {
+      "epoch": 2,
+      "step": 5054,
+      "dev_accuracy": 0.9605592411545624,
+      "dev_macro_f1": 0.9559393827284107
+    },
+    {
+      "epoch": 3,
+      "step": 5054,
+      "dev_accuracy": 0.9632070530726257,
+      "dev_macro_f1": 0.9577438350006166
+    }
+  ],
+  "settings": {
+    "epochs": 3,
+    "batch_size": 128,
+    "max_length": 64,
+    "learning_rate": 4e-05,
+    "seed": 2026,
+    "data_dir": "D:\\自然语言处理\\大作业\\NewsClassification-Paddle-Competition\\database",
+    "model_dir": "D:\\自然语言处理\\大作业\\NewsClassification-Paddle-Competition\\新测试\\pretrained\\macbert-base"
+  },
+  "device": "cuda",
+  "train_rows": 646510,
+  "dev_rows": 68736,
+  "labels": [
+    "体育",
+    "娱乐",
+    "家居",
+    "彩票",
+    "房产",
+    "教育",
+    "时尚",
+    "时政",
+    "星座",
+    "游戏",
+    "社会",
+    "科技",
+    "股票",
+    "财经"
+  ]
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\新测试\macbert_average.py", line 92, in <module>
+    main()
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\新测试\macbert_average.py", line 35, in main
+    snapshot()
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\新测试\macbert_average.py", line 25, in snapshot
+    save_file(checkpoint["model"], temporary)
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\experiments\transformer_followup_20261117\gpu_packages\safetensors\torch.py", line 307, in save_file
+    serialize_file(_flatten(tensors), filename, metadata=metadata)
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\experiments\transformer_followup_20261117\gpu_packages\safetensors\torch.py", line 543, in _flatten
+    return {
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\experiments\transformer_followup_20261117\gpu_packages\safetensors\torch.py", line 547, in <dictcomp>
+    "data": _tobytes(v, k),
+  File "D:\自然语言处理\大作业\NewsClassification-Paddle-Competition\experiments\transformer_followup_20261117\gpu_packages\safetensors\torch.py", line 456, in _tobytes
+    raise ValueError(
+ValueError: You are trying to save a non contiguous tensor: `bert.encoder.layer.0.attention.self.query.weight` which is not allowed. It either means you are trying to save tensors which are reference of each other in which case it's recommended to save only the full tensors, and reslice at load time, or simply call `.contiguous()` on your tensor to pack it before saving.
